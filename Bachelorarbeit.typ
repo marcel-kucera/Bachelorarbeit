@@ -70,20 +70,54 @@
 )
 
 #pagebreak()
-#set page(
-  margin: 3cm,
-  numbering: "1",
-  header: [
-    #set text(8pt)
-    Marcel Frank Kucera
-    #h(1fr)
-    #datetime.today().display("[day].[month].[year]")
-  ],
-)
+
+#import "@preview/hydra:0.6.1": hydra
 
 #outline(indent: auto)
 #pagebreak()
 
+#set page(
+  margin: 3cm,
+  numbering: "1",
+  header: context {
+  if calc.odd(here().page()) {
+    align(right, emph(hydra(1)))
+  } else {
+    align(left, emph(hydra(2)))
+  }
+  line(length: 100%)
+   },
+)
+#set heading(numbering: "1.1")
+#show heading.where(level: 1): it => pagebreak(weak: true) + it
+
+
+
 #set heading(numbering: "1.1")
 
-= Filler
+= Einleitung
+test @becker2019
+== Motivation
+== Zielsetzung
+== Methodik
+= Kontext
+== CURSOR-CRM
+== Infoboards
+== React
+=== Innerhalb des CURSOR-CRM
+== Pivot-Tabellen
+= Konzeptionierung
+== Anforderungen
+== Vergleich mit alter Pivot-Tabellen-Komponente
+= Entwurf
+== Design
+== Evaluation von verfügbaren Bibliotheken
+= Implementierung
+== Freistehende Entwicklung
+== Integration in das CRM-System
+= Evaluation
+== Usability-Tests
+== Bewertung
+= Fazit und Ausblick
+
+#bibliography("My Library.bib",style: "ieee")
