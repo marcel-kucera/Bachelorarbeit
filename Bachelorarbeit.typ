@@ -1,10 +1,13 @@
-#import "@preview/icu-datetime:0.1.2": fmt-date, fmt-time, fmt-datetime, experimental
+#import "@preview/hydra:0.6.1": hydra
+#import "utils.typ": todo
 
-#set page(paper:"a4")
+#set page(paper:"a4",margin: 3cm)
 #set text(lang: "de",size: 12pt)
-#show heading: set block(below: 1.3em,above: 1.5em)
 #set par(justify: true, leading: 1em, spacing: 1.5em)
+#show heading: set block(below: 1.3em,above: 1.5em)
 #show link: link =>  underline(text(blue,link))
+#show cite: set text(fill: blue)
+#show ref: set text(fill: blue)
 
 #let appendix(body) = {
   set heading(numbering: "A", supplement: [Anhang])
@@ -12,11 +15,9 @@
   body
 }
 
-#show cite: set text(fill: blue)
-#show ref: set text(fill: blue)
 
-// TITLEPAGE
-#set page(margin: 3cm)
+#set page(numbering: "I")
+
 #align(
   center,
 )[
@@ -71,13 +72,15 @@
 
 #pagebreak()
 
-#import "@preview/hydra:0.6.1": hydra
-
 #outline(indent: auto)
+
+#todo("Eidstattliche erklärung")
+#todo("KI Erklärung")
+#todo("Zusammenfassung")
+
 #pagebreak()
 
 #set page(
-  margin: 3cm,
   numbering: "1",
   header: context {
   if calc.odd(here().page()) {
@@ -91,33 +94,14 @@
 #set heading(numbering: "1.1")
 #show heading.where(level: 1): it => pagebreak(weak: true) + it
 
+#counter(page).update(1)
 
-
-#set heading(numbering: "1.1")
-
-= Einleitung
-test @becker2019
-== Motivation
-== Zielsetzung
-== Methodik
-= Kontext
-== CURSOR-CRM
-== Infoboards
-== React
-=== Innerhalb des CURSOR-CRM
-== Pivot-Tabellen
-= Konzeptionierung
-== Anforderungen
-== Vergleich mit alter Pivot-Tabellen-Komponente
-= Entwurf
-== Design
-== Evaluation von verfügbaren Bibliotheken
-= Implementierung
-== Freistehende Entwicklung
-== Integration in das CRM-System
-= Evaluation
-== Usability-Tests
-== Bewertung
-= Fazit und Ausblick
+#include "kapitel/1einleitung.typ"
+#include "kapitel/2kontext.typ"
+#include "kapitel/3konzeptionierung.typ"
+#include "kapitel/4entwurf.typ"
+#include "kapitel/5implementierung.typ"
+#include "kapitel/6evaluation.typ"
+#include "kapitel/7fazit.typ"
 
 #bibliography("My Library.bib",style: "ieee")
