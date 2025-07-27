@@ -1,8 +1,6 @@
+#import "../utils.typ": todo
+
 = Einleitung
-
-- teils von exposee übernehmen
-
-
 
 == Motivation
 
@@ -34,6 +32,8 @@ Zudem soll die Komponente performant sein, um auch bei großen Datenmengen eine 
 Des Weiteren soll die entwickelte Komponente die firmeninternen Entwicklungsstandards einhalten sowie bestehenden Code wiederverwenden, damit sie vom Entwicklungsteam auch in Zukunft einfach gewartet werden kann.
 
 == Methodik
+
+#todo("dashier nochmal angucken")
 
 Die Arbeit wird in mehrere aufeinanderfolgende Phasen gegliedert.
 

@@ -15,8 +15,6 @@ Moderne Pivot-Tabellen ergänzen die tabellarische Ansicht häufig durch Diagram
   caption: [Beispiel einer Pivottabelle mit Summierung der Auftragswerte @react-pivottable],
 )
 
-#pagebreak()
-
 == CURSOR-CRM
 
 Das CURSOR-CRM ist ein Customer Relationship Management System, das Unternehmen bei der strukturierten Erfassung, Verwaltung und Auswertung ihrer Kunden- und Geschäftsdaten unterstützt. Eine zentrale Funktion des Systems besteht in der Speicherung verschiedenartiger Daten, welche Entitäten genannt werden. 

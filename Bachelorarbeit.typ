@@ -1,6 +1,7 @@
 #import "@preview/hydra:0.6.1": hydra
 #import "utils.typ": todo
 
+// generelle einstellungen
 #set page(paper:"a4",margin: 3cm)
 #set text(lang: "de",size: 12pt)
 #set par(justify: true, leading: 1em, spacing: 1.5em)
@@ -9,15 +10,11 @@
 #show cite: set text(fill: blue)
 #show ref: set text(fill: blue)
 
-#let appendix(body) = {
-  set heading(numbering: "A", supplement: [Anhang])
-  counter(heading).update(0)
-  body
-}
-
-
+// einstellungen für präamble
+#set heading(outlined: false)
 #set page(numbering: "I")
 
+// deckblatt anfang
 #align(
   center,
 )[
@@ -69,14 +66,32 @@
   [Referent:],[Sebastian Süß, M.Sc.],
   [Korreferent:],[Prof. Dr. Steffen Vaupel]
 )
+// deckblatt ende
 
 #pagebreak()
 
 #outline(indent: auto)
 
-#todo("Eidstattliche erklärung")
+#pagebreak()
+
+= Eidesstattliche Erklärung
+
+Hiermit versichere ich, die vorliegende Arbeit selbstständig und unter ausschließlicher
+Verwendung der angegebenen Literatur und Hilfsmittel erstellt zu haben.
+Die Arbeit wurde bisher in gleicher oder ähnlicher Form keiner anderen Prüfungsbehörde
+vorgelegt und auch nicht veröffentlicht.
+
+#v(1.5cm)
+#line(length: 100%)
+#stack(dir: ltr,
+spacing: 15%,
+"Ort",
+"Datum",
+"Unterschrift")
+
 #todo("KI Erklärung")
 #todo("Zusammenfassung")
+#todo("Abbildungsverzeichnis")
 
 #pagebreak()
 
@@ -91,7 +106,7 @@
   line(length: 100%)
    },
 )
-#set heading(numbering: "1.1")
+#set heading(numbering: "1.1", outlined: true)
 #show heading.where(level: 1): it => pagebreak(weak: true) + it
 
 #counter(page).update(1)
